@@ -1,12 +1,6 @@
 package lesson10;
 
-import lesson10.Metod.IdentyConverter;
-import lesson10.Metod.CelsiusToFahrenheit;
-import lesson10.Metod.FahrenheitToCelsius;
-import lesson10.Metod.CelsiusToKelvin;
-import lesson10.Metod.FahrenheitToKelvin;
-import lesson10.Metod.KelvinToCelsius;
-import lesson10.Metod.KelvinToFahrenheit;
+import lesson10.Metod.*;
 
 public interface Converter {
 
@@ -24,7 +18,11 @@ public interface Converter {
                     }
                     case FAHRENHEIT -> {
                         double x = new FahrenheitToKelvin().convert(value);
-                        return new KelvinToCelsius().convert(x);
+                        return new KelvinToCelsius().convert(new Printer(x, Systems.CELSIUS));
+                    }
+                    case ROOMERA -> {
+                        double x = new RoomeraToKelvin().convert(value);
+                        return new KelvinToCelsius().convert(new Printer(x, Systems.CELSIUS));
                     }
                 }
             }
@@ -39,18 +37,44 @@ public interface Converter {
                     case FAHRENHEIT -> {
                         return new FahrenheitToKelvin().convert(value);
                     }
+                    case ROOMERA -> {
+                        return new RoomeraToKelvin().convert(value);
+                    }
                 }
             }
             case FAHRENHEIT -> {
                 switch (value.getMeasurementSystem()) {
                     case CELSIUS -> {
-                        return new CelsiusToFahrenheit().convert(value);
+                        double x = new CelsiusToKelvin().convert(value);
+                        return new KelvinToFahrenheit().convert(new Printer(x, Systems.FAHRENHEIT));
                     }
                     case FAHRENHEIT -> {
                         return new IdentyConverter().convert(value);
                     }
                     case KELVIN -> {
                         return new KelvinToFahrenheit().convert(value);
+                    }
+                    case ROOMERA -> {
+                        double x = new RoomeraToKelvin().convert(value);
+                        return new KelvinToFahrenheit().convert(new Printer(x, Systems.FAHRENHEIT));
+                    }
+                }
+            }
+            case ROOMERA -> {
+                switch (value.getMeasurementSystem()) {
+                    case CELSIUS -> {
+                        double x = new CelsiusToKelvin().convert(value);
+                        return new KelvinToRoomera().convert(new Printer(x, Systems.ROOMERA));
+                    }
+                    case ROOMERA -> {
+                        return new IdentyConverter().convert(value);
+                    }
+                    case KELVIN -> {
+                        return new KelvinToRoomera().convert(value);
+                    }
+                    case FAHRENHEIT -> {
+                        double x = new FahrenheitToKelvin().convert(value);
+                        return new KelvinToRoomera().convert(new Printer(x, Systems.ROOMERA));
                     }
                 }
             }

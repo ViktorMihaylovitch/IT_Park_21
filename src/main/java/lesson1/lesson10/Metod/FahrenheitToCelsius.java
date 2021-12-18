@@ -1,7 +1,7 @@
-package lesson10.Metod;
+package lesson1.lesson10.Metod;
 
-import lesson10.Converter;
-import lesson10.Printer;
+import lesson1.lesson10.Converter;
+import lesson1.lesson10.Printer;
 
 public class FahrenheitToCelsius implements Converter {
 

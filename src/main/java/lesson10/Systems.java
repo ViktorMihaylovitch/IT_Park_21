@@ -1,7 +1,7 @@
 package lesson10;
 
 public enum Systems {
-    CELSIUS("C"), FAHRENHEIT("F"), KELVIN("K"); // ROOMERA("R")
+    CELSIUS("C"), FAHRENHEIT("F"), KELVIN("K"), ROOMERA("R");
 
     private final String shortName;
 
