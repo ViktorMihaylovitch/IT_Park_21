@@ -34,6 +34,6 @@ public class AutomobileRunner {
             auto.weight((int) (Math.random() * 3999 + 1400));
         }
 
-
     }
+
 }

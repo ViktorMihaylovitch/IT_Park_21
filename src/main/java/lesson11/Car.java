@@ -35,18 +35,30 @@ public class Car extends Automobile {
 
     @Override
     void nomer(int n) {
-        if (n < 500) {
-            System.out.println("Легковой автомобиль c гос. номером:" + n);
-        } else System.out.println("Легковой автомобиль c гос. номером:" + n);
+        System.out.println("Легковой автомобиль c гос. номером:" + n);
     }
 
     @Override
     void speed(int s) {
+        try {
+            if (s > 80) {
+                System.out.println("Скорость автомобиля больше 80 км/ч:" + s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println("Скорость автомобиля:" + s);
     }
 
     @Override
     void weight(int w) {
+        try {
+            if (w > 8000) {
+                System.out.println("Вес автомобиля больше 8 тонн:" + w);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println("Вес автомобиля:" + w);
     }
 }
