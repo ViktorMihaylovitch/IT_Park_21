@@ -2,7 +2,7 @@ package lesson11;
 
 public class Car extends Automobile {
 
-    private int gosnomer;
+    int gosnomer;
     private int speed;
     private int weight;
     private int length;
@@ -33,21 +33,23 @@ public class Car extends Automobile {
         this.height = height;
     }
 
-    @Override
+      @Override
     void nomer(int n) {
         System.out.println("Легковой автомобиль c гос. номером:" + n);
     }
 
-    @Override
+     @Override
     void speed(int s) {
         try {
             if (s > 80) {
-                System.out.println("Скорость автомобиля больше 80 км/ч:" + s);
+                System.out.println("Скорость автомобиля с гос. номером" + gosnomer + "больше 80 км/ч:" + s);
+            } else {
+                System.out.println("Скорость автомобиля с гос. номером" + gosnomer + ":" + s);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Скорость автомобиля:" + s);
+        //      System.out.println("Скорость автомобиля:" + s);
     }
 
     @Override
@@ -61,6 +63,7 @@ public class Car extends Automobile {
         }
         System.out.println("Вес автомобиля:" + w);
     }
+
 }
 
 

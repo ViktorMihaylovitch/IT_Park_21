@@ -22,7 +22,6 @@ public class AutomobileRunner {
         for (Automobile auto : autos) {
             auto.nomer((int) (Math.random() * 999));
         }
-
         int v = 20;
         int u = 65;
         java.util.Random random = new java.util.Random();
